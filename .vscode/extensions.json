@@ -1,0 +1,22 @@
+{
+  /**
+   * ============================================
+   * RECOMMENDED VS CODE EXTENSIONS
+   * ============================================
+   *
+   * DEBUGGING: VS Code will prompt to install these
+   *
+   * SYNTAX: Extension IDs from VS Code marketplace
+   */
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-typescript-next",
+    "bradlc.vscode-tailwindcss",
+    "christian-kohler.path-intellisense",
+    "csstools.postcss",
+    "ms-playwright.playwright",
+    "firefox-devtools.vscode-firefox-debug",
+    "msjsdiag.debugger-for-chrome"
+  ]
+}

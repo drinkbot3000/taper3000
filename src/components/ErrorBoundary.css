@@ -1,0 +1,176 @@
+/**
+ * Error Boundary Styles
+ *
+ * SYNTAX: Uses CSS custom properties defined in index.css
+ *
+ * DEBUGGING:
+ * - Error UI is intentionally simple and always works
+ * - No external dependencies that could fail
+ * - Inline SVG for error icon (no external requests)
+ */
+
+.error-boundary {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background: linear-gradient(
+    135deg,
+    var(--color-surface) 0%,
+    var(--color-background) 100%
+  );
+}
+
+.error-boundary__container {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  padding: var(--space-8);
+  background: var(--color-background);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+}
+
+.error-boundary__icon {
+  color: var(--color-danger);
+  margin-bottom: var(--space-5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.error-boundary__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.error-boundary__message {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+}
+
+/* Error Details (Development only) */
+.error-boundary__details {
+  margin: var(--space-6) 0;
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border);
+  text-align: left;
+}
+
+.error-boundary__summary {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  cursor: pointer;
+  padding: var(--space-2);
+  user-select: none;
+}
+
+.error-boundary__summary:hover {
+  background: var(--color-hover);
+  border-radius: var(--radius-md);
+}
+
+.error-boundary__code {
+  margin-top: var(--space-3);
+}
+
+.error-boundary__code h3 {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin: var(--space-3) 0 var(--space-2);
+}
+
+.error-boundary__code pre {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-danger);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Action Buttons */
+.error-boundary__actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.error-boundary__button {
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.error-boundary__button--primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.error-boundary__button--primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.error-boundary__button--secondary {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.error-boundary__button--secondary:hover {
+  background: var(--color-hover);
+  border-color: var(--color-text-secondary);
+}
+
+.error-boundary__hint {
+  margin-top: var(--space-4);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .error-boundary__container {
+    padding: var(--space-6);
+  }
+
+  .error-boundary__title {
+    font-size: var(--font-size-xl);
+  }
+
+  .error-boundary__actions {
+    flex-direction: column;
+  }
+
+  .error-boundary__button {
+    width: 100%;
+  }
+}

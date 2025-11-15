@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import './index.css';
 
 /**
@@ -52,9 +53,18 @@ if (!rootElement) {
 
 const root = createRoot(rootElement);
 
+/**
+ * ERROR CHECKING: Wrap app with ErrorBoundary
+ *
+ * DEBUGGING: Catches all React errors and shows user-friendly message
+ *
+ * SYNTAX: ErrorBoundary must be class component (not functional)
+ */
 root.render(
   <StrictMode>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </StrictMode>
 );
 
