@@ -1,0 +1,159 @@
+/**
+ * App Component Styles
+ *
+ * Layout structure:
+ * - Flexbox for vertical layout
+ * - CSS Grid for responsive containers
+ * - Mobile-first responsive design
+ */
+
+/* ============================================
+   App Layout
+   ============================================ */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    to bottom,
+    var(--color-surface),
+    var(--color-background)
+  );
+}
+
+/* Header */
+.app__header {
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app__title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.app__title svg {
+  color: var(--color-primary);
+}
+
+.app__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Main content area */
+.app__main {
+  flex: 1;
+  padding: var(--space-6) var(--space-4);
+}
+
+.app__container {
+  max-width: var(--container-md);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Footer */
+.app__footer {
+  padding: var(--space-4);
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.app__footer-text {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Online/offline status indicator */
+.app__status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  transition: all var(--transition-base);
+}
+
+.app__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: background-color var(--transition-base);
+}
+
+.app__status--online .app__status-dot {
+  background-color: var(--color-success);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.app__status--offline .app__status-dot {
+  background-color: var(--color-text-secondary);
+  box-shadow: 0 0 0 2px rgba(107, 114, 128, 0.2);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .app__header {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .app__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .app__main {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .app__footer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--space-5) var(--space-6);
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .app__container {
+    max-width: var(--container-lg);
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .app__header,
+  .app__footer {
+    border: none;
+  }
+
+  .app__status {
+    display: none;
+  }
+}

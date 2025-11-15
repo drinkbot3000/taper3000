@@ -1,0 +1,53 @@
+/**
+ * TodoList Component Styles
+ *
+ * Features:
+ * - Flexible gap-based layout
+ * - Empty state styling
+ * - Smooth transitions
+ */
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+}
+
+/* Empty state */
+.todo-list-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-10) var(--space-4);
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.todo-list-empty svg {
+  margin-bottom: var(--space-4);
+  color: var(--color-text-secondary);
+}
+
+.todo-list-empty__text {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+.todo-list-empty__hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (min-width: 640px) {
+  .todo-list {
+    gap: var(--space-4);
+  }
+}

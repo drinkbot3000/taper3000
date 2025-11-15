@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    // Modern React JSX transform (no need to import React in every file)
+    "jsx": "react-jsx",
+
+    // Target modern browsers for better performance
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+
+    // Bundler-specific settings for Vite
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    // Strict type checking for better code quality
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    // Enable import of service worker types
+    "types": ["vite/client", "vite-plugin-pwa/client"],
+
+    // Skip lib check for faster compilation
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

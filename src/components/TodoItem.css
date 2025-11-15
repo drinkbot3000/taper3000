@@ -1,0 +1,215 @@
+/**
+ * TodoItem Component Styles
+ *
+ * Features:
+ * - Flexbox layout
+ * - Priority color coding
+ * - Completed state styling
+ * - Smooth animations
+ * - Hover states
+ */
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+/* Priority indicator (left border) */
+.todo-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  transition: background-color var(--transition-base);
+}
+
+.todo-item--low::before {
+  background-color: var(--color-priority-low);
+}
+
+.todo-item--medium::before {
+  background-color: var(--color-priority-medium);
+}
+
+.todo-item--high::before {
+  background-color: var(--color-priority-high);
+}
+
+/* Hover state */
+.todo-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* Completed state */
+.todo-item--completed {
+  opacity: 0.6;
+}
+
+.todo-item--completed .todo-item__text span:first-child {
+  text-decoration: line-through;
+  color: var(--color-text-secondary);
+}
+
+/* Content area */
+.todo-item__content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0; /* Allow text truncation */
+}
+
+/* Checkbox */
+.todo-item__checkbox {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  color: var(--color-primary);
+}
+
+.todo-item__checkbox:hover {
+  background: var(--color-hover);
+}
+
+.todo-item__checkbox:focus-visible {
+  background: var(--color-hover);
+}
+
+/* Text area */
+.todo-item__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.todo-item__text span:first-child {
+  font-size: var(--font-size-base);
+  word-break: break-word;
+  transition: all var(--transition-base);
+}
+
+.todo-item__meta {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+/* Edit input */
+.todo-item__edit-input {
+  flex: 1;
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+}
+
+.todo-item__edit-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Actions area */
+.todo-item__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* Priority selector */
+.todo-item__priority-select {
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.todo-item__priority-select:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: var(--color-background);
+}
+
+.todo-item__priority-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Delete button */
+.todo-item__delete {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  color: var(--color-danger);
+  transition: all var(--transition-fast);
+}
+
+.todo-item__delete:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.todo-item__delete:focus-visible {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (min-width: 640px) {
+  .todo-item {
+    padding: var(--space-5);
+  }
+
+  .todo-item__text span:first-child {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.todo-item {
+  animation: slideIn var(--transition-base);
+}

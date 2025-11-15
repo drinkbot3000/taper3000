@@ -1,0 +1,118 @@
+/**
+ * AddTodo Component Styles
+ *
+ * Features:
+ * - Flexbox layout for input group
+ * - Smooth transitions
+ * - Focus states for accessibility
+ * - Disabled state styling
+ */
+
+.add-todo {
+  width: 100%;
+}
+
+.add-todo__input-group {
+  display: flex;
+  gap: var(--space-2);
+  align-items: stretch;
+}
+
+/* Text input */
+.add-todo__input {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-fast);
+}
+
+.add-todo__input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.add-todo__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Priority selector */
+.add-todo__priority {
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-width: 100px;
+}
+
+.add-todo__priority:hover {
+  border-color: var(--color-primary);
+}
+
+.add-todo__priority:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Add button */
+.add-todo__button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-weight-semibold);
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.add-todo__button:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.add-todo__button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.add-todo__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.add-todo__button svg {
+  flex-shrink: 0;
+}
+
+/* Hide button text on mobile */
+.add-todo__button-text {
+  display: none;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (min-width: 640px) {
+  .add-todo__button-text {
+    display: inline;
+  }
+
+  .add-todo__input {
+    font-size: var(--font-size-lg);
+  }
+}

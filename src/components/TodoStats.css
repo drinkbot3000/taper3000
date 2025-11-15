@@ -1,0 +1,148 @@
+/**
+ * TodoStats Component Styles
+ *
+ * Features:
+ * - CSS Grid layout
+ * - Animated progress bar
+ * - Card design
+ * - Responsive columns
+ */
+
+.todo-stats {
+  padding: var(--space-5);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-dark) 100%
+  );
+  border-radius: var(--radius-xl);
+  color: white;
+  box-shadow: var(--shadow-lg);
+}
+
+.todo-stats__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-4);
+  opacity: 0.9;
+}
+
+/* Grid layout */
+.todo-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.todo-stats__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-base);
+}
+
+.todo-stats__item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.todo-stats__item--wide {
+  grid-column: 1 / -1;
+}
+
+.todo-stats__label {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  font-weight: var(--font-weight-medium);
+}
+
+.todo-stats__value {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
+
+.todo-stats__value--active {
+  color: #fbbf24;
+}
+
+.todo-stats__value--completed {
+  color: #34d399;
+}
+
+/* Progress bar */
+.todo-stats__progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.todo-stats__progress-bar {
+  flex: 1;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.todo-stats__progress-fill {
+  height: 100%;
+  background: white;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow) ease-out;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.todo-stats__percentage {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  min-width: 60px;
+  text-align: right;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (min-width: 640px) {
+  .todo-stats {
+    padding: var(--space-6);
+  }
+
+  .todo-stats__title {
+    font-size: var(--font-size-xl);
+  }
+
+  .todo-stats__grid {
+    gap: var(--space-5);
+  }
+
+  .todo-stats__item {
+    padding: var(--space-4);
+  }
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.todo-stats {
+  animation: fadeIn var(--transition-base);
+}
